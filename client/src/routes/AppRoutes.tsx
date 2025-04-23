@@ -1,0 +1,44 @@
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
+import PageLoader from "../components/pageloader/PageLoader.tsx";
+
+//Auth
+import Login from "../pages/Auth/Login.tsx";
+
+//core
+import App from "../App.tsx";
+import Categories from "../pages/Categories/Categories.tsx";
+import Product from "@/pages/Products/Product.tsx";
+import AllProducts from "@/pages/Products/AllProducts.tsx";
+import CategoryProducts from "@/pages/Products/CategoryProducts.tsx";
+import Customers from "@/pages/Customers/Customers.tsx";
+import Customer from "@/pages/Customers/Customer.tsx";
+import CustomerBuying from "@/pages/Customers/CustomerBuying.tsx";
+import ProductCreate from "@/pages/Products/ProductCreate.tsx";
+
+export const AppRoutes = () => {
+  const routes = createRoutesFromElements(
+    <Route element={<PageLoader />}>
+      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<App />}>
+        <Route index element={<Categories />} />
+        <Route path="products/:id" element={<Product />} />
+        <Route path="products" element={<AllProducts />} />
+        <Route path="products/category/:id" element={<CategoryProducts />} />
+        <Route path="customers" element={<Customers />} />
+        <Route path="customers/:id" element={<Customer />} />
+        <Route path="customers/:id/buy" element={<CustomerBuying />} />
+        <Route
+          path="products/category/:id/create"
+          element={<ProductCreate />}
+        />
+      </Route>
+    </Route>
+  );
+  const router = createBrowserRouter(routes);
+  return <RouterProvider router={router} />;
+};

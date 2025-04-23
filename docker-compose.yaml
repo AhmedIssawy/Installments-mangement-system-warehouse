@@ -1,0 +1,36 @@
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: installments-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./server/docker.env
+    depends_on:
+      - mongo
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: installments-frontend
+    command: npm run dev -- --host
+    ports:
+      - "5173:5173"
+    env_file:
+      - ./client/.env
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:
