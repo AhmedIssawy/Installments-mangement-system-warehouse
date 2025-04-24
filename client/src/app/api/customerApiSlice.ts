@@ -19,10 +19,11 @@ const customerApiSlice = apiSlice.injectEndpoints({
             })
         }),
         createCustomer: builder.mutation<any, any>({
-            query: () => ({
+            query: ({data}) => ({
                 url: `${CUSTOMER_URL}`,
                 method: "POST",
-                credentials: "include"
+                credentials: "include",
+                body: data
             })
         }),
         updateCustomer: builder.mutation<any, any>({

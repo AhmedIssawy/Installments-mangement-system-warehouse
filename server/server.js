@@ -9,7 +9,7 @@ const app = express();
 const PORT = process.env.PORT;
 // Database
 import connectDB from "./config/mongoDB.js";
-import { connectRedis } from "./config/redis.js";
+import connectRedis from "./config/redis.js";
 
 // Routes
 import categoryRoutes from "./routes/category.routes.js";
@@ -21,7 +21,7 @@ import authRoutes from "./routes/auth.routes.js";
 import { authinticate } from "./middlewares/auth.middleware.js";
 
 connectDB();
-// connectRedis();
+connectRedis();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(helmet());

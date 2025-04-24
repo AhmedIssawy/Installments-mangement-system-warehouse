@@ -10,7 +10,7 @@ const Customers = () => {
   const { data, isLoading } = useGetAllCustomersQuery();
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     document.title = " جميع العملاء | نظام اداره مبيعات";
   }, []);
@@ -40,6 +40,7 @@ const Customers = () => {
       <h1 className="text-2xl font-semibold mb-6 text-center">العملاء</h1>
 
       <div className="mb-6 flex justify-center">
+        <Button onClick={() => navigate("create")}>انشاء عميل جديد</Button>
         <Input
           type="text"
           value={searchTerm}

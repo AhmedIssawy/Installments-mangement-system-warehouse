@@ -19,6 +19,7 @@ import Customers from "@/pages/Customers/Customers.tsx";
 import Customer from "@/pages/Customers/Customer.tsx";
 import CustomerBuying from "@/pages/Customers/CustomerBuying.tsx";
 import ProductCreate from "@/pages/Products/ProductCreate.tsx";
+import CustomerCreate from "@/pages/Customers/CustomerCreate.tsx";
 
 export const AppRoutes = () => {
   const routes = createRoutesFromElements(
@@ -31,6 +32,7 @@ export const AppRoutes = () => {
         <Route path="products/category/:id" element={<CategoryProducts />} />
         <Route path="customers" element={<Customers />} />
         <Route path="customers/:id" element={<Customer />} />
+        <Route path="customers/create" element={<CustomerCreate />} />
         <Route path="customers/:id/buy" element={<CustomerBuying />} />
         <Route
           path="products/category/:id/create"

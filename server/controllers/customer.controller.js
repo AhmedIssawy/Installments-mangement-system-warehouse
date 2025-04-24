@@ -7,6 +7,8 @@ import Product from "../models/product.model.js";
 
 // Post
 const createCustomer = asyncHandler(async (req, res) => {
+  console.log("Body: ",req.body);
+
   const { name, phone, address, comment } = req.body;
   if (!name || !phone || !address) {
     res.status(400).json({ error: "قم بملئ جميع الحقول" });
