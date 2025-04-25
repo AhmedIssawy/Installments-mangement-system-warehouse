@@ -1,5 +1,5 @@
-[POSTMAN link](https://app.getpostman.com/join-team?invite_code=3ee466d4637385ed64f85ad06ccf229f206e2b312fa1936b4b79f5d89cc6898e&target_code=a20e294c5419b8455380063d183c1fb4)
-[Video for clarifying](https://drive.google.com/file/d/1dogeYHtglDMp8ulbY1EN4zax1DcxojPI/view?usp=sharing)
+- [POSTMAN link](https://app.getpostman.com/join-team?invite_code=3ee466d4637385ed64f85ad06ccf229f206e2b312fa1936b4b79f5d89cc6898e&target_code=a20e294c5419b8455380063d183c1fb4)
+- [Video for clarifying](https://drive.google.com/file/d/1dogeYHtglDMp8ulbY1EN4zax1DcxojPI/view?usp=sharing)
 ## 🧾 Installments Management System (Warehouse)
 A full-stack web application for managing product installments, purchases, and customer payments. Built with the MERN stack, PostgreSQL, and Docker, this system enables warehouse operators to efficiently track product sales, installment plans, and payment schedules.
 
