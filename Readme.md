@@ -146,7 +146,7 @@ SMS/email reminders for overdue payments
 
 Mobile app version for delivery agents
 
-add multiable languages using i18nextjs
+Adding several languages using i18nextjs
 
 ## 👨‍💻 Author
 
