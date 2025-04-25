@@ -53,13 +53,15 @@ JWT, Cookies
 🔧 Getting Started
 1. Clone the Repository
 bash
-``
+ ```
 git clone https://github.com/AhmedIssawy/Installments-mangement-system-warehouse.git
 cd Installments-mangement-system-warehouse
-``
+```
+
 2. Set Up Environment Variables
 Backend .env (inside /server folder)
 .env
+```
 PORT=5000
 MONGODB_URI=your-mongo-URI || mongodb://127.0.0.1:27017/warehouse
 JWT_SECRET=your-mongo-uri
@@ -68,15 +70,18 @@ NODE_ENV=development
 JWT_EXPIRES_IN=10d
 ADMIN_USERNAME=your-admin-name
 ADMIN_PASSWORD=your-password
+```
 
 # Frontend .env (inside /client folder)
 env
-
+```
 NODE_ENV=development
 VITE_API_URL=http://localhost:5000
+```
 
 - If u r going to use docker u have to make docker.env
 # Backend (inside /server folder)
+```
 PORT=5000
 MONGODB_URI=your-mongo-URI || mongodb://mongo:27017/warehouse
 JWT_SECRET=your-secret
@@ -85,38 +90,54 @@ NODE_ENV=development
 JWT_EXPIRES_IN=10d
 ADMIN_USERNAME=your-admin-name
 ADMIN_PASSWORD=your-password-name
+```
 
 # Frontend (inside /client folder)
-
+```
 VITE_API_URL=http://installments-backend:5000
+```
 
 3. Install Dependencies
 Using Docker
 bash
-``
+```
 docker-compose up
-``
+```
 Or using npm
 bash
-``
+```
 cd server
 npm install
-
 cd ../client
 npm install
-
 cd .. 
 npm run dev
-``
-📸 Screenshots
-Dashboard
-Add your dashboard image here
+```
+## 📸 Screenshots
+### Home page
+![image](https://github.com/user-attachments/assets/f9713581-46f2-4929-a3f7-f50641982599)
+
+## Login page
+![image](https://github.com/user-attachments/assets/49055c3e-e141-4c37-bab0-7fbb079dbc2e)
+
+### Customers page
+![image](https://github.com/user-attachments/assets/2f476cc2-817e-4856-b3d6-ebcd77ea5d58)
+
+### Customer page
+![image](https://github.com/user-attachments/assets/4afccacd-da9f-45c0-9343-f963e55d7dc8)
 
 
-🎥 Video for clarification
+### Buying page
+### ![image](https://github.com/user-attachments/assets/caba9fda-1ba8-4980-9c73-764461587531)
+
+### Products page
+![image](https://github.com/user-attachments/assets/d1c9b25f-29ce-4575-8193-959d8865dd89)
+
+
+## 🎥 Video for clarification
 [Video](https://drive.google.com/file/d/1dogeYHtglDMp8ulbY1EN4zax1DcxojPI/view?usp=sharing)
 
-🔮 Future Suggestions
+## 🔮 Future Suggestions
 Real-time notifications using WebSockets
 
 Monthly report generation (PDF exports)
@@ -125,7 +146,9 @@ SMS/email reminders for overdue payments
 
 Mobile app version for delivery agents
 
-👨‍💻 Author
+add multiable languages using i18nextjs
+
+## 👨‍💻 Author
 
 Ahmed Issawy
 
@@ -133,5 +156,5 @@ Ahmed Issawy
 
 🔗 [LinkedIn](https://www.linkedin.com/in/ahmed-issawy-fares/)
 
-📄 License
+## 📄 License
 Free to use for personal or commercial projects.
