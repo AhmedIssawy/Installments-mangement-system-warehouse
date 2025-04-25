@@ -48,7 +48,7 @@ A full-stack web application for managing product installments, purchases, and c
 
 - Redis
 
-JWT, Cookies
+- JWT, Cookies
 
 🔧 Getting Started
 1. Clone the Repository
