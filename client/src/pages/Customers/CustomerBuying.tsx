@@ -10,19 +10,27 @@ import { Input } from "@/components/ui/input";
 const CustomerBuying = () => {
   const navigate = useNavigate();
   const { id: customerId } = useParams();
-  const { data: products = [] } = useGetAllProductsQuery();
-  const { data: categories = [] } = useGetAllCategoriesQuery();
+  const { data: products = [] } = useGetAllProductsQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+    refetchOnReconnect: true,
+  });
+  const { data: categories = [] } = useGetAllCategoriesQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+    refetchOnReconnect: true,
+  });
   const [buyProduct] = useBuyProductMutation();
 
   // State to store selected product ID
   const [selectedProductId, setSelectedProductId] = useState<string>("");
 
   // State to store installments for each product
-  const [installments, setInstallments] = useState<{ [key: string]: number }>({});
+  const [installments, setInstallments] = useState<{ [key: string]: number }>(
+    {}
+  );
 
-   useEffect(() => {
-      document.title = " شراء منتج لعميل | نظام اداره مبيعات";
-    }, []);
+  useEffect(() => {
+    document.title = " شراء منتج لعميل | نظام اداره مبيعات";
+  }, []);
 
   const handleBuy = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -31,7 +39,7 @@ const CustomerBuying = () => {
     const installment = String(installments[selectedProductId]) || 0;
 
     try {
-      console.log({ customerId, selectedProductId, installment });
+      // console.log({ customerId, selectedProductId, installment });
 
       // Call the buyProduct mutation here
       await buyProduct({
@@ -39,8 +47,8 @@ const CustomerBuying = () => {
         productId: selectedProductId,
         installment,
       }).unwrap();
-      // Optionally navigate to the customer page or another location
-      navigate(`/customers/${customerId}`);
+
+      navigate(-1);
     } catch (error) {
       console.error(error);
     }
@@ -66,7 +74,7 @@ const CustomerBuying = () => {
         if (filteredProducts.length === 0) return null;
 
         return (
-          <div key={category._id} className="mb-8">
+          <div key={category._id + 1} className="mb-8">
             <h2 className="text-xl font-semibold mb-4">{category.name}</h2>
 
             <div

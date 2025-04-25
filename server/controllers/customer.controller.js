@@ -5,25 +5,24 @@ import { findProductsByIdUtility } from "../utility/findProduct.js";
 import Customer from "../models/customer.model.js";
 import Product from "../models/product.model.js";
 
+import { redisClient } from "../config/redis.js";
+
 // Post
 const createCustomer = asyncHandler(async (req, res) => {
-  console.log("Body: ",req.body);
+  console.log("Bodyyy: ", req.body);
 
-  const { name, phone, address, comment } = req.body;
-  if (!name || !phone || !address) {
+  const data = req.body;
+  if (!data.name || !data.phone || !data.address) {
     res.status(400).json({ error: "قم بملئ جميع الحقول" });
   }
-  const customerExists = await Customer.findOne({ name: name }).lean();
+  const customerExists = await Customer.findOne({ name: data?.name }).lean();
   if (customerExists) {
     res.status(400).json({ error: "العميل موجود مسبقا" });
   }
   await Customer.create({
-    name: name,
-    phone: phone,
-    address: address,
-    comment: comment || "",
+    ...data,
   });
-  res.status(201).json({ "تم انشاء العميل بنجاح": name });
+  res.status(201).json({ message: "تم انشاء العميل بنجاح" });
 });
 
 const buyProduct = asyncHandler(async (req, res) => {
@@ -45,7 +44,7 @@ const buyProduct = asyncHandler(async (req, res) => {
   if (!targetProduct) {
     return res.status(404).json({ error: "Product is not found!" });
   }
-
+  await redisClient.del("products");
   targetProduct.installments.push({ amount: installment });
   let total = 0;
   targetProduct.installments.forEach((install) => {

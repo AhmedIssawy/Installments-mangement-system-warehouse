@@ -1,3 +1,5 @@
+[POSTMAN link](https://app.getpostman.com/join-team?invite_code=3ee466d4637385ed64f85ad06ccf229f206e2b312fa1936b4b79f5d89cc6898e&target_code=a20e294c5419b8455380063d183c1fb4)
+[Video for clarifying](https://drive.google.com/file/d/1dogeYHtglDMp8ulbY1EN4zax1DcxojPI/view?usp=sharing)
 ## 🧾 Installments Management System (Warehouse)
 A full-stack web application for managing product installments, purchases, and customer payments. Built with the MERN stack, PostgreSQL, and Docker, this system enables warehouse operators to efficiently track product sales, installment plans, and payment schedules.
 
@@ -12,17 +14,17 @@ A full-stack web application for managing product installments, purchases, and c
 
 - 💰 Payment logging and remaining balance tracking
 
-🔐 Role-Based Access Control (RBAC) only admin rightnow
+- 🔐 Role-Based Access Control (RBAC) only admin rightnow
 
-🛡️ Secure authentication with JWT and cookies
+- 🛡️ Secure authentication with JWT and cookies
 
-📈 Admin dashboard for analytics and reports
+- 📈 Admin dashboard for analytics and reports
 
-🐳 Docker-based development environment
+- 🐳 Docker-based development environment
 
-🧠 Backend built with MongoDB & Node.js
+- 🧠 Backend built with MongoDB & Node.js
 
-⚡ Optimized with caching using Redis & rate limiting
+- ⚡ Optimized with caching using Redis
 
 ## 🛠️ Tech Stack
 
@@ -44,7 +46,7 @@ A full-stack web application for managing product installments, purchases, and c
 
 - MongoDB + mongoose
 
-- Redis (optional for caching)
+- Redis
 
 JWT, Cookies
 
@@ -65,19 +67,19 @@ CLIENT_URL=http://localhost:5173
 NODE_ENV=development
 JWT_EXPIRES_IN=10d
 ADMIN_USERNAME=your-admin-name
-ADMIN_PASSWORD=your-password-name
+ADMIN_PASSWORD=your-password
 
 # Frontend .env (inside /client folder)
 env
 
 NODE_ENV=development
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=http://localhost:5000
 
 - If u r going to use docker u have to make docker.env
 # Backend (inside /server folder)
 PORT=5000
 MONGODB_URI=your-mongo-URI || mongodb://mongo:27017/warehouse
-JWT_SECRET=your-mongo-uri
+JWT_SECRET=your-secret
 CLIENT_URL=http://localhost:5173
 NODE_ENV=development
 JWT_EXPIRES_IN=10d
@@ -97,20 +99,12 @@ docker-compose up
 Or using npm
 bash
 ``
-# Backend
 cd server
 npm install
 
-# Frontend
 cd ../client
 npm install
 
-``
-
-Then run:
-
-bash
-``
 cd .. 
 npm run dev
 ``
@@ -118,14 +112,9 @@ npm run dev
 Dashboard
 Add your dashboard image here
 
-Customer Installments View
-Add customer payment timeline UI here
 
-Purchase Form
-Include a form screenshot here
-
-More screenshots and videos coming soon.
 🎥 Video for clarification
+[Video](https://drive.google.com/file/d/1dogeYHtglDMp8ulbY1EN4zax1DcxojPI/view?usp=sharing)
 
 🔮 Future Suggestions
 Real-time notifications using WebSockets
@@ -142,7 +131,7 @@ Ahmed Issawy
 
 📍 Cairo, Egypt
 
-🔗 LinkedIn
+🔗 [LinkedIn](https://www.linkedin.com/in/ahmed-issawy-fares/)
 
 📄 License
 Free to use for personal or commercial projects.

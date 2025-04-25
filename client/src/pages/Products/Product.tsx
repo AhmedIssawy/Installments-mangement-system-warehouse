@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useState, useEffect } from "react";
-import { useGetAllCategoriesQuery } from "@/app/api/categoryApiSlice";
 
 const Product = () => {
   const { id } = useParams();
@@ -21,41 +20,38 @@ const Product = () => {
   } = useGetProductByIdQuery(id);
   const [updateProduct, { isLoading: isUpdating }] = useUpdateProductMutation();
   const [deleteProduct, { isLoading: isDeleting }] = useDeleteProductMutation();
-  const { data: categories } = useGetAllCategoriesQuery();
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
-  const [selectedCategoryId, setSelectedCategoryId] = useState("");
+  console.log(product);
 
   useEffect(() => {
     if (product) {
       setName(product.name);
       setPrice(String(product.price));
       setStock(String(product.stock));
-      setSelectedCategoryId(product.category?._id);
     }
   }, [product]);
 
   const handleUpdate = async () => {
-    if (!name.trim() || !price || !stock || !selectedCategoryId) return;
+    if (!name.trim() || !price || !stock) return;
 
     await updateProduct({
       id,
       name: name.trim(),
       price: Number(price),
       stock: Number(stock),
-      category: selectedCategoryId,
     });
 
     refetch();
-    navigate(`/products/category/${id}`, { replace: true });
+    navigate(-1);
   };
 
   const handleDelete = async () => {
     if (confirm("هل أنت متأكد أنك تريد حذف هذا المنتج؟")) {
       await deleteProduct(id);
-      navigate(`/products/category/${id}`, { replace: true });
+      navigate(-1);
     }
   };
 
@@ -94,21 +90,6 @@ const Product = () => {
             value={stock}
             onChange={(e) => setStock(e.target.value)}
           />
-        </div>
-
-        <div>
-          <label className="block mb-1 text-gray-700">التصنيف</label>
-          <select
-            value={selectedCategoryId}
-            onChange={(e) => setSelectedCategoryId(e.target.value)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-700"
-          >
-            {categories?.map((cat: any) => (
-              <option key={cat._id} value={cat._id}>
-                {cat.name}
-              </option>
-            ))}
-          </select>
         </div>
 
         <div className="flex justify-between pt-4">

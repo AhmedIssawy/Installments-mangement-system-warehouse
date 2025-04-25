@@ -1,4 +1,5 @@
 import { useGetProductByCategoryIdQuery } from "@/app/api/productApiSlice";
+import { useGetCategoryByIdQuery } from "@/app/api/categoryApiSlice";
 import { useParams, useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -10,10 +11,13 @@ const CategoryProducts = () => {
   const { data, isLoading, isError } = useGetProductByCategoryIdQuery(id, {
     refetchOnMountOrArgChange: true,
   });
+  const { data: categoryName } = useGetCategoryByIdQuery(id);
+  console.log(categoryName?.name);
   
+
   useEffect(() => {
-    if (data?.length && data[0]?.category?.name) {
-      document.title = `منتجات ال${data[0].category.name} | نظام اداره مبيعات`;
+    if (categoryName?.name) {
+      document.title = `منتجات ال${categoryName?.name} | نظام اداره مبيعات`;
     }
   }, [data]);
 
@@ -28,17 +32,15 @@ const CategoryProducts = () => {
       </div>
     );
   }
-  
-  
 
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-semibold mb-6 text-center">
-        منتجات ال{data[0].category.name}
+        منتجات ال{categoryName?.name}
       </h1>
       <div className="flex justify-center mb-4">
         <Button onClick={() => navigate(`/products/category/${id}/create`)}>
-          أضافه منتج لل{data[0].category.name}
+          أضافه منتج لل{categoryName?.name}
         </Button>
       </div>
       {data?.length === 0 ? (

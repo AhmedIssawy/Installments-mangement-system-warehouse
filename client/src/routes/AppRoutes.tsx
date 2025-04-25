@@ -27,12 +27,12 @@ export const AppRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<App />}>
         <Route index element={<Categories />} />
-        <Route path="products/:id" element={<Product />} />
         <Route path="products" element={<AllProducts />} />
-        <Route path="products/category/:id" element={<CategoryProducts />} />
         <Route path="customers" element={<Customers />} />
-        <Route path="customers/:id" element={<Customer />} />
         <Route path="customers/create" element={<CustomerCreate />} />
+        <Route path="products/category/:id" element={<CategoryProducts />} />
+        <Route path="customers/:id" element={<Customer />} />
+        <Route path="products/:id" element={<Product />} />
         <Route path="customers/:id/buy" element={<CustomerBuying />} />
         <Route
           path="products/category/:id/create"

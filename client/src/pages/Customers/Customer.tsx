@@ -100,6 +100,9 @@ const Customer = () => {
 
   const handleAddInstallment = async (productId: string) => {
     const customerId = String(id);
+    if(!installment){
+      return toast.error("اضف قيمه للقسط")
+    }
     await addInstallment({ customerId, productId, installment });
     setInstallment("");
     toast.success(`تم اضافه القسط بنجاح بقيمه  ${installment} جنيه`, {
@@ -176,6 +179,7 @@ const Customer = () => {
                 <>
                   <Input
                     placeholder="قيمة القسط"
+                    type="number"
                     value={installment}
                     onChange={(e) => handleInstallmentChange(e.target.value)}
                     className="w-24 mb-4"
@@ -195,11 +199,11 @@ const Customer = () => {
               if (!product) return null;
 
               return (
-                <div key={product._id - 1}>
+                <div key={product._id + 1}>
                   {showInstallments && (
                     <ol className="pl-4 text-sm list-disc mb-2">
                       {p.installments.map((ins: any, i: number) => (
-                        <div key={i} className="mb-2 border-b-2 pb-2">
+                        <div key={i + 1} className="mb-2 border-b-2 pb-2">
                           <li>قيمة القسط: {ins.amount} جنيه</li>
                           <div className="flex gap-4">
                             <li>{new Date(ins.paidAt).toLocaleString()}</li>

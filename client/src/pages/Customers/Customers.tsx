@@ -7,7 +7,9 @@ import { useState, useMemo, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 
 const Customers = () => {
-  const { data, isLoading } = useGetAllCustomersQuery();
+  const { data, isLoading } = useGetAllCustomersQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+  });
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
