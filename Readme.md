@@ -59,7 +59,7 @@ cd Installments-mangement-system-warehouse
 ```
 
 2. Set Up Environment Variables
-Backend .env (inside /server folder)
+# Backend .env (inside /server folder)
 .env
 ```
 PORT=5000
@@ -79,7 +79,7 @@ NODE_ENV=development
 VITE_API_URL=http://localhost:5000
 ```
 
-- If u r going to use docker u have to make docker.env
+### If u r going to use docker u have to make docker.env
 # Backend (inside /server folder)
 ```
 PORT=5000
