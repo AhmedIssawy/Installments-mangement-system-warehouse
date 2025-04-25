@@ -80,7 +80,7 @@ VITE_API_URL=http://localhost:5000
 ```
 
 ### If u r going to use docker u have to make docker.env
-# Backend (inside /server folder)
+# Backend docker.env (inside /server folder)
 ```
 PORT=5000
 MONGODB_URI=your-mongo-URI || mongodb://mongo:27017/warehouse
@@ -92,7 +92,7 @@ ADMIN_USERNAME=your-admin-name
 ADMIN_PASSWORD=your-password-name
 ```
 
-# Frontend (inside /client folder)
+# Frontend docker.env (inside /client folder)
 ```
 VITE_API_URL=http://installments-backend:5000
 ```
