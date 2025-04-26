@@ -108,11 +108,20 @@ const getCustomerById = asyncHandler(async (req, res) => {
     .lean();
 
   if (customer?.products?.length > 0) {
+    // أول حاجة: ترتيب الأقساط داخل كل منتج
     customer.products.forEach((p) => {
       if (Array.isArray(p.installments)) {
-        p.installments.sort((a, b) => new Date(b.paidAt) - new Date(a.paidAt));
+        p.installments.sort(
+          (a, b) => b.paidAt.getTime() - a.paidAt.getTime()
+        );
       }
     });
+
+    // ثاني حاجة: ترتيب المنتجات نفسها
+    customer.products.sort(
+      (a, b) =>
+        new Date(b.purchasedAt).getTime() - new Date(a.purchasedAt).getTime()
+    );
   }
 
   res.status(200).json(customer);

@@ -7,6 +7,10 @@ const ProductEntrySchema = new mongoose.Schema(
       ref: "Product",
       required: true,
     },
+    purchasedAt: {
+      type: Date,
+      default: Date.now,
+    },
     installments: [
       {
         amount: {
@@ -17,6 +21,7 @@ const ProductEntrySchema = new mongoose.Schema(
           default: Date.now,
         },
       },
+      { _id: true },
     ],
 
     paid: {
@@ -24,7 +29,7 @@ const ProductEntrySchema = new mongoose.Schema(
       default: false,
     },
   },
-  { _id: false }
+  { _id: true }
 );
 
 const customerSchema = new mongoose.Schema(
@@ -53,8 +58,6 @@ const customerSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
-
 
 const Customer = mongoose.model("Customer", customerSchema);
 export default Customer;

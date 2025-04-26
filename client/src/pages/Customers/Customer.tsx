@@ -39,9 +39,9 @@ const Customer = () => {
   const [totalPaid, setTotalPaid] = useState(0);
   const [totalPurchases, setTotalPurchases] = useState(0);
 
-   useEffect(() => {
-      document.title = " اداره العميل | نظام اداره مبيعات";
-    }, []);
+  useEffect(() => {
+    document.title = " اداره العميل | نظام اداره مبيعات";
+  }, []);
 
   useEffect(() => {
     if (data) {
@@ -100,8 +100,8 @@ const Customer = () => {
 
   const handleAddInstallment = async (productId: string) => {
     const customerId = String(id);
-    if(!installment){
-      return toast.error("اضف قيمه للقسط")
+    if (!installment) {
+      return toast.error("اضف قيمه للقسط");
     }
     await addInstallment({ customerId, productId, installment });
     setInstallment("");
@@ -194,16 +194,16 @@ const Customer = () => {
               )}
             </form>
 
-            {data.products.map((p: any) => {
+            {data?.products?.map((p: any) => {
               const product = p.product;
               if (!product) return null;
 
               return (
-                <div key={product._id + 1}>
+                <div key={Math.random()}>
                   {showInstallments && (
                     <ol className="pl-4 text-sm list-disc mb-2">
-                      {p.installments.map((ins: any, i: number) => (
-                        <div key={i + 1} className="mb-2 border-b-2 pb-2">
+                      {p.installments.map((ins: any) => (
+                        <div key={ins._id} className="mb-2 border-b-2 pb-2">
                           <li>قيمة القسط: {ins.amount} جنيه</li>
                           <div className="flex gap-4">
                             <li>{new Date(ins.paidAt).toLocaleString()}</li>
@@ -219,16 +219,18 @@ const Customer = () => {
                   )}
                   {showProducts && (
                     <div className="border-b-2 pb-2 mb-2">
-                      <div className="text-lg  font-semibold mb-2">
+                      <div className="text-lg   font-semibold mb-2">
                         اسم المنتج: {product.name}
+                        <li>{new Date(p.purchasedAt).toLocaleString()}</li>
+                        <p>
+                          {moment(
+                            new Date(p.purchasedAt).toISOString()
+                          ).fromNow()}
+                        </p>
                       </div>
                       <div>السعر: {product.price} جنيه</div>
 
-                      {/* only this part should be conditional */}
-
                       <div className="mb-2"></div>
-
-                      {/* Add Installment Form */}
                     </div>
                   )}
                 </div>
