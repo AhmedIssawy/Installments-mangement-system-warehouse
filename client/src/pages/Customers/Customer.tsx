@@ -93,7 +93,7 @@ const Customer = () => {
   };
 
   const handleInstallmentChange = (value: string) => {
-    const num = parseFloat(value);
+    const num = String(value);
 
     setInstallment(num);
   };

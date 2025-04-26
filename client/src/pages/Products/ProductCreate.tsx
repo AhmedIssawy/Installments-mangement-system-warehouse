@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { data, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useCreateProductMutation } from "@/app/api/productApiSlice";
 import { useGetCategoryByIdQuery } from "@/app/api/categoryApiSlice";
 import { Input } from "@/components/ui/input";
@@ -8,9 +8,9 @@ import { Card } from "@/components/ui/card";
 import { toast } from "react-toastify";
 
 const ProductCreate = () => {
-  const { id } = useParams(); // You can use this if product creation is related to a customer
+  const { id } = useParams(); 
   const [createProduct] = useCreateProductMutation();
-  const { data: categoryData } = useGetCategoryByIdQuery(id);
+  const { data: categoryData } = useGetCategoryByIdQuery(id!);
   console.log(categoryData);
 
   const navigate = useNavigate();

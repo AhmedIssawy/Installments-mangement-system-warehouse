@@ -11,14 +11,13 @@ const AllProducts = () => {
   const navigate = useNavigate();
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
 
-  // 🧠 استخراج كل البراندات بشكل فريد
+
   const uniqueBrands = useMemo(() => {
     if (!products) return [];
     const brands = products.map((p: any) => p.brand).filter(Boolean);
     return [...new Set(brands)];
   }, [products]);
 
-  // 🧹 فلترة المنتجات حسب البراند
   const filteredProducts = useMemo(() => {
     if (!products) return [];
     if (selectedBrands.length === 0) return products;
@@ -47,24 +46,22 @@ const AllProducts = () => {
       </h1>
 
       <div className="flex gap-6">
-        {/* 🔍 الفلاتر */}
         <aside className="w-64">
           <h2 className="text-xl font-semibold mb-4">فلترة حسب البراند</h2>
           <div className="space-y-2">
             {uniqueBrands.map((brand) => (
-              <label key={brand} className="flex items-center gap-2">
+              <label key={brand as string} className="flex items-center gap-2">
                 <input
                   type="checkbox"
-                  checked={selectedBrands.includes(brand)}
-                  onChange={() => handleBrandChange(brand)}
+                  checked={selectedBrands.includes(brand as string)}
+                  onChange={() => handleBrandChange(brand as string)}
                 />
-                <span className="text-gray-700">{brand}</span>
+                <span className="text-gray-700">{brand as string}</span>
               </label>
             ))}
           </div>
         </aside>
 
-        {/* 🛍️ المنتجات */}
         <div className="grid grid-cols-1 text-right sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 flex-1">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product: any) => (

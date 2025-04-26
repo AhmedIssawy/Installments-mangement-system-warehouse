@@ -8,10 +8,10 @@ import { useEffect } from "react";
 const CategoryProducts = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { data, isLoading, isError } = useGetProductByCategoryIdQuery(id, {
+  const { data, isLoading, isError } = useGetProductByCategoryIdQuery(id!, {
     refetchOnMountOrArgChange: true,
   });
-  const { data: categoryName } = useGetCategoryByIdQuery(id);
+  const { data: categoryName } = useGetCategoryByIdQuery(id!);
   console.log(categoryName?.name);
   
 
