@@ -1,5 +1,6 @@
 - [POSTMAN link](https://app.getpostman.com/join-team?invite_code=3ee466d4637385ed64f85ad06ccf229f206e2b312fa1936b4b79f5d89cc6898e&target_code=a20e294c5419b8455380063d183c1fb4)
 - [Video for clarifying](https://drive.google.com/file/d/1dogeYHtglDMp8ulbY1EN4zax1DcxojPI/view?usp=sharing)
+- username: ziad, password: 123
 
 ## 🧾 Installments Management System (Warehouse)
 
