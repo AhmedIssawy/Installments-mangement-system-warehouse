@@ -5,7 +5,7 @@
 ## 🧾 Installments Management System (Warehouse)
 
 A full-stack web application for managing product installments, purchases, and customer payments. Built with the MERN stack, PostgreSQL, and Docker, this system enables warehouse operators to efficiently track product sales, installment plans, and payment schedules.
-
+ 
 ## ✨ Features
 
 - 📦 Product creation and inventory tracking
