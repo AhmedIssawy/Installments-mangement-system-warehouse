@@ -2,7 +2,7 @@
 - [Video for clarifying](https://drive.google.com/file/d/1dogeYHtglDMp8ulbY1EN4zax1DcxojPI/view?usp=sharing)
 - username: ziad, password: 123  
  
-## 🧾 Installments Management System (Warehouse) 
+## 🧾 Installments Management System (Warehouse)
      
 A full-stack web application for managing product installments, purchases, and customer payments. Built with the MERN stack, and Docker, this system enables warehouse operators to efficiently track product sales, installment plans, and payment schedules.
  
