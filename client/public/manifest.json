@@ -1,0 +1,28 @@
+{
+  "name": "مخازن الجمّال - El Gammal Warehouse",
+  "short_name": "الجمّال",
+  "description": "التسوق بالتقسيط في حلوان - أثاث، أجهزة إلكترونية، موبايلات",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#1f2937",
+  "orientation": "portrait-primary",
+  "dir": "rtl",
+  "lang": "ar",
+  "icons": [
+    {
+      "src": "/warehouse.ico",
+      "sizes": "192x192",
+      "type": "image/x-icon",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/warehouse.ico",
+      "sizes": "512x512",
+      "type": "image/x-icon",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["shopping", "business"],
+  "screenshots": []
+}

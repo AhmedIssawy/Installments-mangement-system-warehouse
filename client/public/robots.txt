@@ -1,0 +1,15 @@
+# robots.txt for El Gammal Warehouse - مخازن الجمّال
+# Allow all search engines to crawl and index the site
+
+User-agent: *
+Allow: /
+
+# Disallow admin/dashboard pages from search engines
+Disallow: /dashboard/
+Disallow: /login
+
+# Sitemap location
+Sitemap: https://installments-mangement-system-warehouse.vercel.app/sitemap.xml
+
+# Crawl-delay (optional - helps manage server load)
+Crawl-delay: 1
