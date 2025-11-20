@@ -32,18 +32,18 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-md p-6 bg-white shadow rounded"
+        className="w-full max-w-md p-8 bg-gray-800/90 backdrop-blur-sm shadow-2xl rounded-2xl border border-gray-700"
       >
-        <h2 className="text-2xl mb-4 font-bold text-center">Login</h2>
-        {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
-        <div className="mb-4">
-          <label className="block mb-1 font-medium">Username</label>
+        <h2 className="text-3xl mb-6 font-bold text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">تسجيل الدخول</h2>
+        {error && <p className="text-red-400 mb-4 text-center bg-red-500/10 p-3 rounded-lg">{error}</p>}
+        <div className="mb-5">
+          <label className="block mb-2 font-medium text-gray-200">اسم المستخدم</label>
           <input
             type="text"
-            className="w-full border rounded px-3 py-2"
+            className="w-full border border-gray-600 bg-gray-700/50 text-gray-100 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
@@ -51,10 +51,10 @@ const Login = () => {
           />
         </div>
         <div className="mb-6">
-          <label className="block mb-1 font-medium">Password</label>
+          <label className="block mb-2 font-medium text-gray-200">كلمة المرور</label>
           <input
             type="password"
-            className="w-full border rounded px-3 py-2"
+            className="w-full border border-gray-600 bg-gray-700/50 text-gray-100 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -62,22 +62,22 @@ const Login = () => {
         </div>
         <Button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 flex items-center justify-center gap-2"
+          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 py-3 rounded-lg flex items-center justify-center gap-2 shadow-lg transition-all duration-300"
           disabled={isLoading}
         >
           {isLoading ? (
-            <FaCircleNotch className="animate-spin text-white text-lg" />
+            <FaCircleNotch className="animate-spin text-lg" />
           ) : (
-            "Login"
+            "دخول"
           )}
         </Button>
-        <div className="flex items-center mt-2 space-x-2">
+        <div className="flex items-center mt-4 space-x-2 space-x-reverse">
           <Checkbox id="terms" />
           <label
             htmlFor="terms"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            className="text-sm font-medium leading-none text-gray-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           >
-            Remember me
+            تذكرني
           </label>
         </div>
       </form>

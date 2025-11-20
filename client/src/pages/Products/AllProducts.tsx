@@ -36,27 +36,28 @@ const AllProducts = () => {
       document.title = " جميع المنتجات | نظام اداره مبيعات";
     }, []);
 
-  if (isLoading) return <div className="text-center text-blue-600">جاري التحميل...</div>;
-  if (isError) return <div className="text-center text-red-600">حدث خطأ أثناء جلب البيانات</div>;
+  if (isLoading) return <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center text-blue-400 text-xl">جاري التحميل...</div>;
+  if (isError) return <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center text-red-400 text-xl">حدث خطأ أثناء جلب البيانات</div>;
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-semibold text-center text-gray-800 mb-8">
+    <div className="container mx-auto p-4 min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+      <h1 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent py-2">
         جميع المنتجات
       </h1>
 
       <div className="flex gap-6">
-        <aside className="w-64">
-          <h2 className="text-xl font-semibold mb-4">فلترة حسب البراند</h2>
-          <div className="space-y-2">
+        <aside className="w-64 bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700">
+          <h2 className="text-xl font-semibold mb-4 text-gray-100">فلترة حسب البراند</h2>
+          <div className="space-y-3">
             {uniqueBrands.map((brand) => (
-              <label key={brand as string} className="flex items-center gap-2">
+              <label key={brand as string} className="flex items-center gap-2 cursor-pointer hover:text-blue-400 transition-colors">
                 <input
                   type="checkbox"
                   checked={selectedBrands.includes(brand as string)}
                   onChange={() => handleBrandChange(brand as string)}
+                  className="w-4 h-4 text-blue-600 bg-gray-700 border-gray-600 rounded focus:ring-blue-500"
                 />
-                <span className="text-gray-700">{brand as string}</span>
+                <span className="text-gray-200">{brand as string}</span>
               </label>
             ))}
           </div>
@@ -67,25 +68,25 @@ const AllProducts = () => {
             filteredProducts.map((product: any) => (
               <Card
                 key={product._id}
-                className="bg-white border shadow-md rounded-2xl p-4 flex flex-col justify-between min-h-[170px] hover:shadow-xl transition-all"
+                className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg rounded-2xl p-4 flex flex-col justify-between min-h-[170px] hover:border-purple-500 hover:shadow-xl hover:shadow-purple-500/20 hover:scale-105 transition-all duration-300"
               >
-                <h2 className="text-xl font-semibold text-gray-800 mb-2">{product.name}</h2>
-                <p className="text-gray-600 mb-1">السعر: ${product.price}</p>
-                <p className="text-gray-600 mb-1">المخزون: {product.stock}</p>
-                <p className="text-gray-500 text-sm mt-auto">
-                  التصنيف: <span className="font-medium text-gray-700">{product.category?.name}</span>
+                <h2 className="text-xl font-semibold text-gray-100 mb-2">{product.name}</h2>
+                <p className="text-gray-200 mb-1">السعر: ${product.price}</p>
+                <p className="text-gray-200 mb-1">المخزون: {product.stock}</p>
+                <p className="text-gray-300 text-sm mt-auto">
+                  التصنيف: <span className="font-medium text-gray-200">{product.category?.name}</span>
                 </p>
-                <p>البراند: {product.brand}</p>
+                <p className="text-gray-300">البراند: {product.brand}</p>
                 <Button
-                  className="mt-4 bg-blue-600 hover:bg-blue-700 text-white"
-                  onClick={() => navigate(`/products/${product._id}`)}
+                  className="mt-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-md transition-all duration-300"
+                  onClick={() => navigate(`/dashboard/products/${product._id}`)}
                 >
                   عرض المنتج
                 </Button>
               </Card>
             ))
           ) : (
-            <p className="text-gray-500 col-span-full text-center">لا توجد منتجات مطابقة</p>
+            <p className="text-gray-400 text-lg col-span-full text-center">لا توجد منتجات مطابقة</p>
           )}
         </div>
       </div>

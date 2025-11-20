@@ -65,49 +65,50 @@ const Categories = () => {
   };
 
   if (isLoading) {
-    return <div className="text-center text-blue-600">جاري التحميل...</div>;
+    return <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center text-blue-400 text-xl">جاري التحميل...</div>;
   }
 
   if (isError) {
     return (
-      <div className="text-center text-red-600">حدث خطأ أثناء جلب البيانات</div>
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center text-red-400 text-xl">حدث خطأ أثناء جلب البيانات</div>
     );
   }
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-semibold text-center text-gray-800 mb-8">
+    <div className="container mx-auto p-4 min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+      <h1 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent py-2">
         إدارة الفئات
       </h1>
 
       {/* Create Category */}
-      <div className="flex flex-col items-center mb-6">
-        <div className="  mb-6 w-100 flex justify-center gap-4">
+      <div className="flex flex-col items-center mb-8">
+        <div className="mb-6 w-100 flex justify-center gap-4">
           <Input
             type="text"
             placeholder="أضف فئة جديدة"
             autoFocus
             value={categoryName}
             onChange={(e) => setCategoryName(e.target.value)}
+            className="bg-gray-700/50 border-gray-600 text-gray-100 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-500"
           />
           <Button
             onClick={handleCreateCategory}
             disabled={isCreating}
-            className="w-32 bg-blue-600 text-white hover:bg-blue-700"
+            className="w-32 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
           >
             {isCreating ? "جارٍ الإضافة..." : "إضافة"}
           </Button>
         </div>
-        <div className="flex gap-4 ">
+        <div className="flex gap-4">
           <Button
-            className="h-20 w-50 text-lg"
-            onClick={() => navigate("/products")}
+            className="h-20 w-50 text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg transition-all duration-300"
+            onClick={() => navigate("/dashboard/products")}
           >
             عرض جميع المنتجات
           </Button>
           <Button
-            className="h-20 w-50 text-lg"
-            onClick={() => navigate("/customers")}
+            className="h-20 w-50 text-lg bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 shadow-lg transition-all duration-300"
+            onClick={() => navigate("/dashboard/customers")}
           >
             عرض جميع العملاء
           </Button>
@@ -122,7 +123,7 @@ const Categories = () => {
               onClick={() => navigate(`/products/category/${category._id}`)}
               key={category._id}
             >
-              <Card className="bg-white border shadow-md rounded-2xl p-4 flex flex-col justify-between min-h-[150px] hover:shadow-xl transition-all">
+              <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg rounded-2xl p-4 flex flex-col justify-between min-h-[150px] hover:border-purple-500 hover:shadow-xl hover:shadow-purple-500/20 hover:scale-105 transition-all duration-300">
                 {editingCategoryId === category._id ? (
                   <div className="flex flex-col gap-2">
                     <Input
@@ -132,6 +133,7 @@ const Categories = () => {
                         e.stopPropagation();
                         setEditedName(e.target.value);
                       }}
+                      className="bg-gray-700/50 border-gray-600 text-gray-100 focus:ring-2 focus:ring-blue-500"
                     />
                     <div className="flex justify-between">
                       <Button
@@ -139,7 +141,7 @@ const Categories = () => {
                           e.stopPropagation();
                           saveEdit();
                         }}
-                        className="bg-green-600 text-white hover:bg-green-700"
+                        className="bg-green-600 hover:bg-green-700 shadow-md transition-all duration-300"
                       >
                         حفظ
                       </Button>
@@ -148,7 +150,7 @@ const Categories = () => {
                           e.stopPropagation();
                           cancelEditing();
                         }}
-                        className="bg-gray-400 text-white hover:bg-gray-500"
+                        className="bg-gray-600 hover:bg-gray-700 shadow-md transition-all duration-300"
                       >
                         إلغاء
                       </Button>
@@ -156,7 +158,7 @@ const Categories = () => {
                   </div>
                 ) : (
                   <>
-                    <span className="text-xl text-gray-800 mb-4 text-center">
+                    <span className="text-xl text-gray-100 mb-4 text-center font-semibold">
                       {category.name}
                     </span>
                     <div className="flex justify-between">
@@ -165,7 +167,7 @@ const Categories = () => {
                           e.stopPropagation();
                           startEditing(category._id, category.name);
                         }}
-                        className="bg-yellow-500 hover:bg-yellow-600 text-white text-sm px-3"
+                        className="bg-yellow-600 hover:bg-yellow-700 text-sm px-3 shadow-md transition-all duration-300"
                       >
                         تعديل
                       </Button>
@@ -175,7 +177,7 @@ const Categories = () => {
                           handleDeleteCategory(category._id);
                         }}
                         disabled={isDeleting}
-                        className="bg-red-500 hover:bg-red-600 text-white text-sm px-3"
+                        className="bg-red-600 hover:bg-red-700 text-sm px-3 shadow-md transition-all duration-300"
                       >
                         حذف
                       </Button>
@@ -187,7 +189,7 @@ const Categories = () => {
           ))}
         </div>
       ) : (
-        <p className="text-center text-gray-500">لا توجد فئات لعرضها</p>
+        <p className="text-center text-gray-400 text-lg">لا توجد فئات لعرضها</p>
       )}
     </div>
   );
