@@ -117,10 +117,4 @@
   body {
     @apply bg-background text-foreground;
   }
-  :root {
-    color-scheme: dark;
-  }
-  html {
-    @apply dark;
-  }
 }

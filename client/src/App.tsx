@@ -17,17 +17,17 @@ const App = () => {
     }
   }, [navigate]);
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
       <ToastContainer />
       <div>
-        <Button className="absolute" onClick={() => navigate("/dashboard")}>
+        <Button className="absolute z-50 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700" onClick={() => navigate("/dashboard")}>
           الصفحه الرئيسيه
         </Button>
       </div>
       {data?.isAuthinticated && (
         <>
           <Button
-            className="bg-blue-300 h-5  absolute bottom-0"
+            className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 h-10 absolute bottom-4 z-50"
             onClick={() => {
               logout();
               navigate("/");
@@ -46,13 +46,13 @@ const App = () => {
         </>
       )}
       {!data?.isAuthinticated && (
-        <div className="absolute">
-          <Button className="bg-blue-500">
+        <div className="absolute z-50">
+          <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
             <a href="/login">تسجيل الدخول</a>
           </Button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

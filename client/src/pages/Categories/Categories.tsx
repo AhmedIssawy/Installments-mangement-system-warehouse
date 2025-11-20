@@ -65,17 +65,17 @@ const Categories = () => {
   };
 
   if (isLoading) {
-    return <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center text-blue-400 text-xl">جاري التحميل...</div>;
+    return <div className="w-full min-h-screen flex items-center justify-center text-blue-400 text-xl">جاري التحميل...</div>;
   }
 
   if (isError) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center text-red-400 text-xl">حدث خطأ أثناء جلب البيانات</div>
+      <div className="w-full min-h-screen flex items-center justify-center text-red-400 text-xl">حدث خطأ أثناء جلب البيانات</div>
     );
   }
 
   return (
-    <div className="container mx-auto p-4 min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+    <div className="w-full p-4 min-h-screen">
       <h1 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent py-2">
         إدارة الفئات
       </h1>
