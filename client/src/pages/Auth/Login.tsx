@@ -23,7 +23,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await login({ username, password }).unwrap();
-      navigate("/", { replace: true });
+      navigate("/dashboard", { replace: true });
       toast.success("اهلا بك في نظام اداره المبيعات");
     } catch (err: any) {
       setError(err?.data?.message || "Login failed");

@@ -37,7 +37,7 @@ services:
     ports:
       - "5173:5173"
     env_file:
-      - ./client/.env
+      - ./client/docker.env
     depends_on:
       - backend
 

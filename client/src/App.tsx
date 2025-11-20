@@ -20,7 +20,7 @@ const App = () => {
     <>
       <ToastContainer />
       <div>
-        <Button className="absolute" onClick={() => navigate("/")}>
+        <Button className="absolute" onClick={() => navigate("/dashboard")}>
           الصفحه الرئيسيه
         </Button>
       </div>
@@ -30,7 +30,7 @@ const App = () => {
             className="bg-blue-300 h-5  absolute bottom-0"
             onClick={() => {
               logout();
-              navigate("/login");
+              navigate("/");
               toast.success("تم تسجيل الخروج بنجاح");
             }}
           >

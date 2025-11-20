@@ -9,6 +9,9 @@ import PageLoader from "../components/pageloader/PageLoader.tsx";
 //Auth
 import Login from "../pages/Auth/Login.tsx";
 
+//Landing
+import LandingPage from "../pages/Landing/LandingPage.tsx";
+
 //core
 import App from "../App.tsx";
 import Categories from "../pages/Categories/Categories.tsx";
@@ -24,8 +27,9 @@ import CustomerCreate from "@/pages/Customers/CustomerCreate.tsx";
 export const AppRoutes = () => {
   const routes = createRoutesFromElements(
     <Route element={<PageLoader />}>
+      <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/" element={<App />}>
+      <Route path="/dashboard" element={<App />}>
         <Route index element={<Categories />} />
         <Route path="products" element={<AllProducts />} />
         <Route path="customers" element={<Customers />} />
